@@ -28,9 +28,9 @@ createRoot(document.getElementById('root')!).render(
         <AlertProvider>
           <AppRouter />
           <CssBaseline />
+          <App />
         </AlertProvider>
       </AuthProvider>
-      <App />
     </ThemeProvider>
   </StrictMode>,
 );
