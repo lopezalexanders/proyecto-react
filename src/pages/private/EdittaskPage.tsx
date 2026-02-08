@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
 import { useAlert, useAxios } from '../../hooks';
-import { useAuth } from '../../hooks/useAuth';
 import type { ActionState } from '../../interfaces';
 import { createInitialState, handleZodError } from '../../helpers';
 import {  useActionState, useState } from "react";
@@ -19,16 +18,10 @@ import Checkbox from '@mui/material/Checkbox';;
 export type TaskActionState = ActionState<TaskFormValues>;
 const initialState = createInitialState<TaskFormValues>();
 
-export const NewtaskPage = () => {
+export const EdittaskPage = () => {
     const { showAlert } = useAlert();
   const navigate = useNavigate();
   const axios = useAxios();
-
-  const { token } = useAuth();
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-  };
 
   const createTaskApi = async (
     _: TaskActionState | undefined,
@@ -107,7 +100,7 @@ const [done, setDone] = useState<boolean>(false);
                 ) : null
               }
             >
-              {isPending ? 'Creando...' : 'Crear Tarea'}
+              {isPending ? 'Actualizando...' : 'Actualizar Tarea'}
             </Button>
             <Link to={'/tasks'}>Regresar a la lista de tareas</Link>
           </Box>

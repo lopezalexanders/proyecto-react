@@ -9,7 +9,6 @@ import {
 } from '@mui/material';
 import { Link, useNavigate} from 'react-router-dom';
 import { useAlert, useAxios } from '../../hooks';
-import { useAuth } from '../../hooks/useAuth';
 import type { ActionState } from '../../interfaces';
 import { createInitialState, handleZodError } from '../../helpers';
 import {  useActionState, useState } from "react";
@@ -23,12 +22,6 @@ export const NewtaskPage = () => {
     const { showAlert } = useAlert();
   const navigate = useNavigate();
   const axios = useAxios();
-
-  const { token } = useAuth();
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-  };
 
   const createTaskApi = async (
     _: TaskActionState | undefined,
