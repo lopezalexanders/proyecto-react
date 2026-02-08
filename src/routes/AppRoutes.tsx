@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { LoginPage, UserPage } from '../pages/public';
 import { PublicRoute } from './PublicRouter';
 import { PrivateRoute } from './PrivateRouter';
-import { PerfilPage, TaskPage } from '../pages/private';
+import { PerfilPage, TaskPage, NewtaskPage } from '../pages/private';
 
 export const AppRouter = () => {
   return (
@@ -17,6 +17,7 @@ export const AppRouter = () => {
         <Route element={<PrivateRoute />}>
           <Route path="/perfil" element={<PerfilPage />} />
           <Route path="/tasks" element={<TaskPage />} />
+          <Route path="/newtasks" element={<NewtaskPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" />} />
