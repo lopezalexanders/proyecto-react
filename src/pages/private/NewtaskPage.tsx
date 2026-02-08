@@ -78,6 +78,8 @@ const [done, setDone] = useState<boolean>(false);
               required
               fullWidth
               label="Nombre de la tarea"
+              autoFocus
+              defaultValue={state?.formData?.name}
               sx={{ mt: 3, mb: 2, height:  40 }}
               type="text"
               autoComplete="name"
