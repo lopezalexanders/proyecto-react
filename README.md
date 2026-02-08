@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+Task Management CRUD
+Este es un proyecto de gestión de tareas desarrollado con React, Vite y TypeScript. Permite a los usuarios realizar las operaciones fundamentales de un sistema: Crear, Leer, Actualizar y Eliminar tareas (CRUD), consumiendo una API REST mediante Axios.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Tecnologías Utilizadas
+React  - Biblioteca para la interfaz de usuario.
 
-Currently, two official plugins are available:
+Vite - Herramienta de construcción (build tool) ultra rápida.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+TypeScript - Para un desarrollo seguro con tipado estático.
 
-## React Compiler
+Material UI (MUI) - Biblioteca de componentes para el diseño visual.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Axios - Cliente HTTP para el consumo de la API.
 
-## Expanding the ESLint configuration
+React Router Dom - Gestión de navegación y rutas.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Zod - Validación de esquemas y formularios.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+✨ Características
+Autenticación: Integración con tokens Bearer para proteger las rutas.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+CRUD Completo:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Create: Formulario validado con Zod para añadir tareas.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Read: Visualización de tareas en una tabla dinámica de Material UI.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Update: Edición de nombre y estado de la tarea.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Delete: Eliminación de registros con confirmación.
+
+Validación de Datos: Prevención de errores de tipo (ej. booleanos vs strings en checkboxes).
+
+🛠️ Instalación y Configuración
+Clona el repositorio:
+
+Bash
+git clone https://github.com/lopezalexanders/proyecto-react.git
+cd proyecto-react
+Instala las dependencias:
+
+Bash
+npm install
+Configura las variables de entorno: Crea un archivo .env en la raíz del proyecto y añade la URL de tu API:
+
+Fragmento de código
+VITE_API_URL=http://tu-api-url.com
+Inicia el servidor de desarrollo:
+
+Bash
+npm run dev
+📂 Estructura del Proyecto
+Plaintext
+src/
+├── components/     # Componentes reutilizables (Botones, Inputs)
+├── hooks/          # Custom hooks (useAxios, useAuth)
+├── pages/          # Vistas principales (TaskPage, NewTaskPage)
+├── services/       # Lógica de llamadas a la API
+├── types/          # Definiciones de interfaces TypeScript
+└── App.tsx         # Configuración de rutas
